@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Layout } from "antd";
 
-function App() {
+import SearchContextProvider from "./context/SearchContext";
+
+import Home from "./components/Home/Home";
+import "./App.css";
+const App = () => {
+  const { Header, Content } = Layout;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Layout>
+        <Header className="br_header">
+          <h1 className="br_header_text">GitHub Repository Search</h1>
+        </Header>
+        <Content className="br_content">
+          <SearchContextProvider>
+            <Home />
+          </SearchContextProvider>
+        </Content>
+      </Layout>
     </div>
   );
-}
+};
 
 export default App;
